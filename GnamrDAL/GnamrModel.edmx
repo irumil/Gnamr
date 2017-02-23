@@ -1,0 +1,1646 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="gnamrModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="adres">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="sysid" Type="int" />
+          <Property Name="idplace" Type="int" />
+          <Property Name="street" Type="varchar" MaxLength="25" />
+          <Property Name="box" Type="tinyint" />
+          <Property Name="housenmb" Type="varchar" MaxLength="4" />
+          <Property Name="postalindex" Type="int" />
+          <Property Name="numbertel" Type="varchar" MaxLength="7" />
+          <Property Name="indt" Type="datetime2" Precision="7" />
+          <Property Name="outdt" Type="datetime2" Precision="7" />
+          <Property Name="doc_type" Type="tinyint" />
+          <Property Name="src" Type="varchar" MaxLength="3" />
+          <Property Name="ind" Type="tinyint" Nullable="false" />
+          <Property Name="updt" Type="datetime2" Precision="7" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usr" Type="int" />
+          <Property Name="usr_add" Type="tinyint" />
+          <Property Name="doze" Type="real" />
+          <Property Name="room" Type="smallint" />
+        </EntityType>
+        <EntityType Name="adres_fm">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="sysid" Type="int" />
+          <Property Name="idrelat" Type="tinyint" />
+          <Property Name="idplace" Type="int" />
+          <Property Name="indt" Type="datetime2" Precision="7" />
+          <Property Name="indf" Type="tinyint" />
+          <Property Name="outdt" Type="datetime2" Precision="7" />
+          <Property Name="outdf" Type="tinyint" />
+          <Property Name="src" Type="varchar" MaxLength="3" />
+          <Property Name="ind" Type="tinyint" />
+          <Property Name="updt" Type="datetime2" Precision="7" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_region" Type="int" />
+          <Property Name="id_area" Type="int" />
+        </EntityType>
+        <EntityType Name="biomaterials">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sysid" Type="int" />
+          <Property Name="dt" Type="date" />
+          <Property Name="bioMaterialId" Type="int" />
+          <Property Name="availability" Type="tinyint" />
+          <Property Name="number" Type="int" />
+          <Property Name="descrip" Type="varchar" MaxLength="200" />
+          <Property Name="updt" Type="datetime2" Precision="7" />
+          <Property Name="usr" Type="tinyint" />
+          <Property Name="usr_add" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="children">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="sysid" Type="int" />
+          <Property Name="id_marr" Type="int" />
+          <Property Name="seq_no" Type="tinyint" />
+          <Property Name="idchild" Type="int" Nullable="false" />
+          <Property Name="updt" Type="datetime2" Precision="7" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_relat" Type="int" />
+          <Property Name="usr" Type="tinyint" />
+          <Property Name="usr_add" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="clc_diag">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="sysid" Type="int" />
+          <Property Name="icd10" Type="varchar" MaxLength="8" />
+          <Property Name="diag_dt" Type="datetime2" Precision="7" />
+          <Property Name="notes" Type="varchar" MaxLength="250" />
+          <Property Name="updt" Type="datetime2" Precision="7" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="diag_type" Type="tinyint" />
+          <Property Name="usr" Type="tinyint" />
+          <Property Name="usr_add" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="doc_inf">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="sysid" Type="int" />
+          <Property Name="doc_type" Type="tinyint" />
+          <Property Name="number" Type="varchar" MaxLength="10" />
+          <Property Name="serial" Type="varchar" MaxLength="10" />
+          <Property Name="memo" Type="varchar(max)" />
+          <Property Name="src" Type="varchar" MaxLength="3" />
+          <Property Name="updt" Type="datetime2" Precision="7" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pict" Type="varbinary(max)" />
+          <Property Name="usr" Type="tinyint" />
+          <Property Name="usr_add" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="doze">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="sysid" Type="int" />
+          <Property Name="total" Type="float" />
+          <Property Name="dozemdt" Type="datetime2" Precision="7" />
+          <Property Name="updt" Type="datetime2" Precision="7" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="doz_param" Type="tinyint" />
+          <Property Name="doc_type" Type="tinyint" />
+          <Property Name="usr" Type="tinyint" />
+          <Property Name="usr_add" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="edb">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sysid" Type="int" />
+          <Property Name="iin" Type="varchar" MaxLength="20" />
+          <Property Name="firstname" Type="varchar" MaxLength="40" />
+          <Property Name="lastname" Type="varchar" MaxLength="40" />
+          <Property Name="midlname" Type="varchar" MaxLength="40" />
+          <Property Name="birtdt" Type="date" />
+          <Property Name="src" Type="varchar" MaxLength="20" />
+          <Property Name="idnational" Type="int" />
+          <Property Name="gender" Type="int" />
+          <Property Name="usr" Type="int" />
+        </EntityType>
+        <EntityType Name="educated">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="sysid" Type="int" Nullable="false" />
+          <Property Name="ideduct" Type="tinyint" />
+          <Property Name="serial" Type="varchar" MaxLength="20" />
+          <Property Name="idtrade" Type="int" />
+          <Property Name="usr" Type="tinyint" />
+          <Property Name="updt" Type="datetime2" Precision="7" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usr_add" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="id">
+          <Key>
+            <PropertyRef Name="sysid" />
+          </Key>
+          <Property Name="sysid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="gender" Type="tinyint" />
+          <Property Name="stat_src" Type="varchar" MaxLength="3" />
+          <Property Name="stat_dt" Type="datetime2" Precision="7" />
+          <Property Name="updt" Type="datetime2" Precision="7" />
+          <Property Name="iin" Type="varchar" MaxLength="12" />
+          <Property Name="usr" Type="tinyint" />
+          <Property Name="idnational" Type="tinyint" />
+          <Property Name="indelete" Type="tinyint" />
+          <Property Name="sysid_duble" Type="int" />
+          <Property Name="idplace" Type="int" />
+          <Property Name="birthdt" Type="date" />
+          <Property Name="usr_add" Type="tinyint" />
+          <Property Name="id_kagort" Type="int" />
+          <Property Name="isstacionar" Type="tinyint" />
+          <Property Name="idFather" Type="int" />
+          <Property Name="idMother" Type="int" />
+        </EntityType>
+        <EntityType Name="idead">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="sysid" Type="int" />
+          <Property Name="icd10" Type="varchar" MaxLength="8" />
+          <Property Name="comment" Type="varchar(max)" />
+          <Property Name="deaddt" Type="datetime2" Precision="7" />
+          <Property Name="ind" Type="tinyint" />
+          <Property Name="updt" Type="datetime2" Precision="7" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usr" Type="int" />
+          <Property Name="number" Type="varchar" MaxLength="20" />
+          <Property Name="usr_add" Type="tinyint" />
+          <Property Name="icd9" Type="varchar" MaxLength="8" />
+        </EntityType>
+        <EntityType Name="lgm">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sysid" Type="int" />
+          <Property Name="number" Type="varchar" MaxLength="20" />
+          <Property Name="meas_dt" Type="date" />
+          <Property Name="dicentrics" Type="float" />
+          <Property Name="fragments" Type="float" />
+          <Property Name="Translocation" Type="float" />
+          <Property Name="Ring_chromosome" Type="float" />
+          <Property Name="cg_prep" Type="varchar" MaxLength="20" />
+          <Property Name="relat" Type="varchar" MaxLength="250" />
+          <Property Name="updt" Type="datetime2" Precision="7" />
+          <Property Name="usr" Type="int" />
+          <Property Name="usr_add" Type="int" />
+        </EntityType>
+        <EntityType Name="log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usr" Type="int" />
+          <Property Name="dt_tm" Type="datetime2" Precision="7" />
+          <Property Name="act" Type="int" />
+          <Property Name="descrip" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="marriage">
+          <Key>
+            <PropertyRef Name="id_marr" />
+          </Key>
+          <Property Name="wife" Type="int" />
+          <Property Name="seq_no" Type="tinyint" />
+          <Property Name="mardt" Type="datetime2" Precision="7" />
+          <Property Name="husband" Type="int" />
+          <Property Name="src" Type="varchar" MaxLength="3" />
+          <Property Name="updt" Type="datetime2" Precision="7" />
+          <Property Name="id_marr" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="number" Type="varchar" MaxLength="10" />
+          <Property Name="serial" Type="varchar" MaxLength="10" />
+          <Property Name="memo" Type="varchar(max)" />
+          <Property Name="usr" Type="int" />
+          <Property Name="usr_add" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="mylist">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sysid" Type="int" />
+          <Property Name="descrip" Type="varchar" MaxLength="250" />
+          <Property Name="date" Type="datetime2" Precision="7" />
+          <Property Name="usr" Type="int" />
+        </EntityType>
+        <EntityType Name="names">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="sysid" Type="int" />
+          <Property Name="firstname" Type="varchar" MaxLength="20" />
+          <Property Name="lastname" Type="varchar" MaxLength="20" />
+          <Property Name="midlname" Type="varchar" MaxLength="20" />
+          <Property Name="ind" Type="tinyint" Nullable="false" />
+          <Property Name="updt" Type="datetime2" Precision="7" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usr" Type="int" />
+          <Property Name="usr_add" Type="tinyint" />
+          <Property Name="type_doc" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="relat">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="idsysid" Type="int" />
+          <Property Name="idrelat" Type="tinyint" />
+          <Property Name="idrelt" Type="int" />
+          <Property Name="dozes" Type="int" />
+          <Property Name="updt" Type="datetime2" Precision="7" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usr" Type="int" />
+          <Property Name="usr_add" Type="int" />
+        </EntityType>
+        <EntityType Name="service_sql">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descrip" Type="varchar" MaxLength="150" />
+          <Property Name="sqlText" Type="varchar(max)" />
+          <Property Name="autor" Type="varchar" MaxLength="20" />
+          <Property Name="idparent" Type="int" />
+        </EntityType>
+        <EntityType Name="sich">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sysid" Type="int" />
+          <Property Name="meas_dt" Type="date" />
+          <Property Name="Cs137" Type="float" />
+          <Property Name="error_cs137" Type="float" />
+          <Property Name="I131" Type="float" />
+          <Property Name="error_i131" Type="float" />
+          <Property Name="Co60" Type="float" />
+          <Property Name="error_co60" Type="float" />
+          <Property Name="M54" Type="float" />
+          <Property Name="error_m54" Type="float" />
+          <Property Name="Cr51" Type="float" />
+          <Property Name="error_cr51" Type="float" />
+          <Property Name="number" Type="varchar" MaxLength="20" />
+          <Property Name="updt" Type="datetime2" Precision="7" />
+          <Property Name="usr" Type="int" />
+          <Property Name="usr_add" Type="int" />
+        </EntityType>
+        <EntityType Name="trades">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="sysid" Type="int" />
+          <Property Name="idtrade" Type="int" />
+          <Property Name="bgdt" Type="date" />
+          <Property Name="enddt" Type="date" />
+          <Property Name="updt" Type="datetime2" Precision="7" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usr" Type="tinyint" />
+          <Property Name="usr_add" Type="tinyint" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'gnamr.dbo.Search' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Search">
+          <Key>
+            <PropertyRef Name="sysid" />
+            <PropertyRef Name="ind" />
+          </Key>
+          <Property Name="sysid" Type="int" Nullable="false" />
+          <Property Name="gender" Type="tinyint" />
+          <Property Name="iin" Type="varchar" MaxLength="12" />
+          <Property Name="stat_src" Type="varchar" MaxLength="3" />
+          <Property Name="stat_dt" Type="datetime2" Precision="7" />
+          <Property Name="updt" Type="datetime2" Precision="7" />
+          <Property Name="indelete" Type="tinyint" />
+          <Property Name="birthdt" Type="date" />
+          <Property Name="usr_add" Type="tinyint" />
+          <Property Name="usr" Type="tinyint" />
+          <Property Name="firstname" Type="varchar" MaxLength="20" />
+          <Property Name="lastname" Type="varchar" MaxLength="20" />
+          <Property Name="midlname" Type="varchar" MaxLength="20" />
+          <Property Name="ind" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <Association Name="dbo_adres_fk">
+          <End Role="id" Type="Self.id" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="adres" Type="Self.adres" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="id">
+              <PropertyRef Name="sysid" />
+            </Principal>
+            <Dependent Role="adres">
+              <PropertyRef Name="sysid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dbo_adres_fm_fk">
+          <End Role="id" Type="Self.id" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="adres_fm" Type="Self.adres_fm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="id">
+              <PropertyRef Name="sysid" />
+            </Principal>
+            <Dependent Role="adres_fm">
+              <PropertyRef Name="sysid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dbo_biomaterials_fk">
+          <End Role="id" Type="Self.id" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="biomaterials" Type="Self.biomaterials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="id">
+              <PropertyRef Name="sysid" />
+            </Principal>
+            <Dependent Role="biomaterials">
+              <PropertyRef Name="sysid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dbo_children_fk">
+          <End Role="marriage" Type="Self.marriage" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="children" Type="Self.children" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="marriage">
+              <PropertyRef Name="id_marr" />
+            </Principal>
+            <Dependent Role="children">
+              <PropertyRef Name="id_marr" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dbo_clc_diag_fk">
+          <End Role="id" Type="Self.id" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="clc_diag" Type="Self.clc_diag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="id">
+              <PropertyRef Name="sysid" />
+            </Principal>
+            <Dependent Role="clc_diag">
+              <PropertyRef Name="sysid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dbo_doc_inf_fk">
+          <End Role="id" Type="Self.id" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="doc_inf" Type="Self.doc_inf" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="id">
+              <PropertyRef Name="sysid" />
+            </Principal>
+            <Dependent Role="doc_inf">
+              <PropertyRef Name="sysid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dbo_doze_fk">
+          <End Role="id" Type="Self.id" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="doze" Type="Self.doze" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="id">
+              <PropertyRef Name="sysid" />
+            </Principal>
+            <Dependent Role="doze">
+              <PropertyRef Name="sysid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dbo_educated_fk">
+          <End Role="id" Type="Self.id" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="educated" Type="Self.educated" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="id">
+              <PropertyRef Name="sysid" />
+            </Principal>
+            <Dependent Role="educated">
+              <PropertyRef Name="sysid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dbo_idead_fk">
+          <End Role="id" Type="Self.id" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="idead" Type="Self.idead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="id">
+              <PropertyRef Name="sysid" />
+            </Principal>
+            <Dependent Role="idead">
+              <PropertyRef Name="sysid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dbo_lgm_fk">
+          <End Role="id" Type="Self.id" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="lgm" Type="Self.lgm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="id">
+              <PropertyRef Name="sysid" />
+            </Principal>
+            <Dependent Role="lgm">
+              <PropertyRef Name="sysid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dbo_names_fk">
+          <End Role="id" Type="Self.id" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="names" Type="Self.names" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="id">
+              <PropertyRef Name="sysid" />
+            </Principal>
+            <Dependent Role="names">
+              <PropertyRef Name="sysid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dbo_relat_fk">
+          <End Role="id" Type="Self.id" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="relat" Type="Self.relat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="id">
+              <PropertyRef Name="sysid" />
+            </Principal>
+            <Dependent Role="relat">
+              <PropertyRef Name="idsysid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dbo_sich_fk">
+          <End Role="id" Type="Self.id" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="sich" Type="Self.sich" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="id">
+              <PropertyRef Name="sysid" />
+            </Principal>
+            <Dependent Role="sich">
+              <PropertyRef Name="sysid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dbo_trades_fk">
+          <End Role="id" Type="Self.id" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="trades" Type="Self.trades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="id">
+              <PropertyRef Name="sysid" />
+            </Principal>
+            <Dependent Role="trades">
+              <PropertyRef Name="sysid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="gnamrModelStoreContainer">
+          <EntitySet Name="adres" EntityType="Self.adres" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="adres_fm" EntityType="Self.adres_fm" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="biomaterials" EntityType="Self.biomaterials" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="children" EntityType="Self.children" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="clc_diag" EntityType="Self.clc_diag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="doc_inf" EntityType="Self.doc_inf" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="doze" EntityType="Self.doze" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="edb" EntityType="Self.edb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="educated" EntityType="Self.educated" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="id" EntityType="Self.id" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="idead" EntityType="Self.idead" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lgm" EntityType="Self.lgm" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="log" EntityType="Self.log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="marriage" EntityType="Self.marriage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mylist" EntityType="Self.mylist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="names" EntityType="Self.names" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="relat" EntityType="Self.relat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="service_sql" EntityType="Self.service_sql" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sich" EntityType="Self.sich" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="trades" EntityType="Self.trades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Search" EntityType="Self.Search" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Search].[sysid] AS [sysid], 
+    [Search].[gender] AS [gender], 
+    [Search].[iin] AS [iin], 
+    [Search].[stat_src] AS [stat_src], 
+    [Search].[stat_dt] AS [stat_dt], 
+    [Search].[updt] AS [updt], 
+    [Search].[indelete] AS [indelete], 
+    [Search].[birthdt] AS [birthdt], 
+    [Search].[usr_add] AS [usr_add], 
+    [Search].[usr] AS [usr], 
+    [Search].[firstname] AS [firstname], 
+    [Search].[lastname] AS [lastname], 
+    [Search].[midlname] AS [midlname], 
+    [Search].[ind] AS [ind]
+    FROM [dbo].[Search] AS [Search]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="dbo_adres_fk" Association="Self.dbo_adres_fk">
+            <End Role="id" EntitySet="id" />
+            <End Role="adres" EntitySet="adres" />
+          </AssociationSet>
+          <AssociationSet Name="dbo_adres_fm_fk" Association="Self.dbo_adres_fm_fk">
+            <End Role="id" EntitySet="id" />
+            <End Role="adres_fm" EntitySet="adres_fm" />
+          </AssociationSet>
+          <AssociationSet Name="dbo_biomaterials_fk" Association="Self.dbo_biomaterials_fk">
+            <End Role="id" EntitySet="id" />
+            <End Role="biomaterials" EntitySet="biomaterials" />
+          </AssociationSet>
+          <AssociationSet Name="dbo_children_fk" Association="Self.dbo_children_fk">
+            <End Role="marriage" EntitySet="marriage" />
+            <End Role="children" EntitySet="children" />
+          </AssociationSet>
+          <AssociationSet Name="dbo_clc_diag_fk" Association="Self.dbo_clc_diag_fk">
+            <End Role="id" EntitySet="id" />
+            <End Role="clc_diag" EntitySet="clc_diag" />
+          </AssociationSet>
+          <AssociationSet Name="dbo_doc_inf_fk" Association="Self.dbo_doc_inf_fk">
+            <End Role="id" EntitySet="id" />
+            <End Role="doc_inf" EntitySet="doc_inf" />
+          </AssociationSet>
+          <AssociationSet Name="dbo_doze_fk" Association="Self.dbo_doze_fk">
+            <End Role="id" EntitySet="id" />
+            <End Role="doze" EntitySet="doze" />
+          </AssociationSet>
+          <AssociationSet Name="dbo_educated_fk" Association="Self.dbo_educated_fk">
+            <End Role="id" EntitySet="id" />
+            <End Role="educated" EntitySet="educated" />
+          </AssociationSet>
+          <AssociationSet Name="dbo_idead_fk" Association="Self.dbo_idead_fk">
+            <End Role="id" EntitySet="id" />
+            <End Role="idead" EntitySet="idead" />
+          </AssociationSet>
+          <AssociationSet Name="dbo_lgm_fk" Association="Self.dbo_lgm_fk">
+            <End Role="id" EntitySet="id" />
+            <End Role="lgm" EntitySet="lgm" />
+          </AssociationSet>
+          <AssociationSet Name="dbo_names_fk" Association="Self.dbo_names_fk">
+            <End Role="id" EntitySet="id" />
+            <End Role="names" EntitySet="names" />
+          </AssociationSet>
+          <AssociationSet Name="dbo_relat_fk" Association="Self.dbo_relat_fk">
+            <End Role="id" EntitySet="id" />
+            <End Role="relat" EntitySet="relat" />
+          </AssociationSet>
+          <AssociationSet Name="dbo_sich_fk" Association="Self.dbo_sich_fk">
+            <End Role="id" EntitySet="id" />
+            <End Role="sich" EntitySet="sich" />
+          </AssociationSet>
+          <AssociationSet Name="dbo_trades_fk" Association="Self.dbo_trades_fk">
+            <End Role="id" EntitySet="id" />
+            <End Role="trades" EntitySet="trades" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="gnamrModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="adres">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="sysid" Type="Int32" />
+          <Property Name="idplace" Type="Int32" />
+          <Property Name="street" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="box" Type="Byte" />
+          <Property Name="housenmb" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="postalindex" Type="Int32" />
+          <Property Name="numbertel" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="indt" Type="DateTime" Precision="7" />
+          <Property Name="outdt" Type="DateTime" Precision="7" />
+          <Property Name="doc_type" Type="Byte" />
+          <Property Name="src" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="ind" Type="Byte" Nullable="false" />
+          <Property Name="updt" Type="DateTime" Precision="7" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usr" Type="Int32" />
+          <Property Name="usr_add" Type="Byte" />
+          <Property Name="doze" Type="Single" />
+          <Property Name="room" Type="Int16" />
+          <NavigationProperty Name="id1" Relationship="Self.dbo_adres_fk" FromRole="adres" ToRole="id" />
+        </EntityType>
+        <EntityType Name="adres_fm">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="sysid" Type="Int32" />
+          <Property Name="idrelat" Type="Byte" />
+          <Property Name="idplace" Type="Int32" />
+          <Property Name="indt" Type="DateTime" Precision="7" />
+          <Property Name="indf" Type="Byte" />
+          <Property Name="outdt" Type="DateTime" Precision="7" />
+          <Property Name="outdf" Type="Byte" />
+          <Property Name="src" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="ind" Type="Byte" />
+          <Property Name="updt" Type="DateTime" Precision="7" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_region" Type="Int32" />
+          <Property Name="id_area" Type="Int32" />
+          <NavigationProperty Name="id1" Relationship="Self.dbo_adres_fm_fk" FromRole="adres_fm" ToRole="id" />
+        </EntityType>
+        <EntityType Name="biomaterials">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sysid" Type="Int32" />
+          <Property Name="dt" Type="DateTime" Precision="0" />
+          <Property Name="bioMaterialId" Type="Int32" />
+          <Property Name="availability" Type="Byte" />
+          <Property Name="number" Type="Int32" />
+          <Property Name="descrip" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="updt" Type="DateTime" Precision="7" />
+          <Property Name="usr" Type="Byte" />
+          <Property Name="usr_add" Type="Byte" />
+          <NavigationProperty Name="id1" Relationship="Self.dbo_biomaterials_fk" FromRole="biomaterials" ToRole="id" />
+        </EntityType>
+        <EntityType Name="children">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="sysid" Type="Int32" />
+          <Property Name="id_marr" Type="Int32" />
+          <Property Name="seq_no" Type="Byte" />
+          <Property Name="idchild" Type="Int32" Nullable="false" />
+          <Property Name="updt" Type="DateTime" Precision="7" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_relat" Type="Int32" />
+          <Property Name="usr" Type="Byte" />
+          <Property Name="usr_add" Type="Byte" />
+          <NavigationProperty Name="marriage" Relationship="Self.dbo_children_fk" FromRole="children" ToRole="marriage" />
+        </EntityType>
+        <EntityType Name="clc_diag">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="sysid" Type="Int32" />
+          <Property Name="icd10" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="diag_dt" Type="DateTime" Precision="7" />
+          <Property Name="notes" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="updt" Type="DateTime" Precision="7" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="diag_type" Type="Byte" />
+          <Property Name="usr" Type="Byte" />
+          <Property Name="usr_add" Type="Byte" />
+          <NavigationProperty Name="id1" Relationship="Self.dbo_clc_diag_fk" FromRole="clc_diag" ToRole="id" />
+        </EntityType>
+        <EntityType Name="doc_inf">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="sysid" Type="Int32" />
+          <Property Name="doc_type" Type="Byte" />
+          <Property Name="number" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="serial" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="memo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="src" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="updt" Type="DateTime" Precision="7" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pict" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="usr" Type="Byte" />
+          <Property Name="usr_add" Type="Byte" />
+          <NavigationProperty Name="id1" Relationship="Self.dbo_doc_inf_fk" FromRole="doc_inf" ToRole="id" />
+        </EntityType>
+        <EntityType Name="doze">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="sysid" Type="Int32" />
+          <Property Name="total" Type="Double" />
+          <Property Name="dozemdt" Type="DateTime" Precision="7" />
+          <Property Name="updt" Type="DateTime" Precision="7" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="doz_param" Type="Byte" />
+          <Property Name="doc_type" Type="Byte" />
+          <Property Name="usr" Type="Byte" />
+          <Property Name="usr_add" Type="Byte" />
+          <NavigationProperty Name="id1" Relationship="Self.dbo_doze_fk" FromRole="doze" ToRole="id" />
+        </EntityType>
+        <EntityType Name="edb">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sysid" Type="Int32" />
+          <Property Name="iin" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="firstname" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="lastname" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="midlname" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="birtdt" Type="DateTime" Precision="0" />
+          <Property Name="src" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="idnational" Type="Int32" />
+          <Property Name="gender" Type="Int32" />
+          <Property Name="usr" Type="Int32" />
+        </EntityType>
+        <EntityType Name="educated">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="sysid" Type="Int32" Nullable="false" />
+          <Property Name="ideduct" Type="Byte" />
+          <Property Name="serial" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="idtrade" Type="Int32" />
+          <Property Name="usr" Type="Byte" />
+          <Property Name="updt" Type="DateTime" Precision="7" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usr_add" Type="Byte" />
+          <NavigationProperty Name="id1" Relationship="Self.dbo_educated_fk" FromRole="educated" ToRole="id" />
+        </EntityType>
+        <EntityType Name="id">
+          <Key>
+            <PropertyRef Name="sysid" />
+          </Key>
+          <Property Name="sysid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="gender" Type="Byte" />
+          <Property Name="stat_src" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="stat_dt" Type="DateTime" Precision="7" />
+          <Property Name="updt" Type="DateTime" Precision="7" />
+          <Property Name="iin" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="usr" Type="Byte" />
+          <Property Name="idnational" Type="Byte" />
+          <Property Name="indelete" Type="Byte" />
+          <Property Name="sysid_duble" Type="Int32" />
+          <Property Name="idplace" Type="Int32" />
+          <Property Name="birthdt" Type="DateTime" Precision="0" />
+          <Property Name="usr_add" Type="Byte" />
+          <Property Name="id_kagort" Type="Int32" />
+          <Property Name="isstacionar" Type="Byte" />
+          <Property Name="idFather" Type="Int32" />
+          <Property Name="idMother" Type="Int32" />
+          <NavigationProperty Name="adres" Relationship="Self.dbo_adres_fk" FromRole="id" ToRole="adres" />
+          <NavigationProperty Name="adres_fm" Relationship="Self.dbo_adres_fm_fk" FromRole="id" ToRole="adres_fm" />
+          <NavigationProperty Name="biomaterials" Relationship="Self.dbo_biomaterials_fk" FromRole="id" ToRole="biomaterials" />
+          <NavigationProperty Name="clc_diag" Relationship="Self.dbo_clc_diag_fk" FromRole="id" ToRole="clc_diag" />
+          <NavigationProperty Name="doc_inf" Relationship="Self.dbo_doc_inf_fk" FromRole="id" ToRole="doc_inf" />
+          <NavigationProperty Name="doze" Relationship="Self.dbo_doze_fk" FromRole="id" ToRole="doze" />
+          <NavigationProperty Name="educated" Relationship="Self.dbo_educated_fk" FromRole="id" ToRole="educated" />
+          <NavigationProperty Name="idead" Relationship="Self.dbo_idead_fk" FromRole="id" ToRole="idead" />
+          <NavigationProperty Name="lgm" Relationship="Self.dbo_lgm_fk" FromRole="id" ToRole="lgm" />
+          <NavigationProperty Name="names" Relationship="Self.dbo_names_fk" FromRole="id" ToRole="names" />
+          <NavigationProperty Name="relat" Relationship="Self.dbo_relat_fk" FromRole="id" ToRole="relat" />
+          <NavigationProperty Name="sich" Relationship="Self.dbo_sich_fk" FromRole="id" ToRole="sich" />
+          <NavigationProperty Name="trades" Relationship="Self.dbo_trades_fk" FromRole="id" ToRole="trades" />
+        </EntityType>
+        <EntityType Name="idead">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="sysid" Type="Int32" />
+          <Property Name="icd10" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="deaddt" Type="DateTime" Precision="7" />
+          <Property Name="ind" Type="Byte" />
+          <Property Name="updt" Type="DateTime" Precision="7" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usr" Type="Int32" />
+          <Property Name="number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="usr_add" Type="Byte" />
+          <Property Name="icd9" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="id1" Relationship="Self.dbo_idead_fk" FromRole="idead" ToRole="id" />
+        </EntityType>
+        <EntityType Name="lgm">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sysid" Type="Int32" />
+          <Property Name="number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="meas_dt" Type="DateTime" Precision="0" />
+          <Property Name="dicentrics" Type="Double" />
+          <Property Name="fragments" Type="Double" />
+          <Property Name="Translocation" Type="Double" />
+          <Property Name="Ring_chromosome" Type="Double" />
+          <Property Name="cg_prep" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="relat" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="updt" Type="DateTime" Precision="7" />
+          <Property Name="usr" Type="Int32" />
+          <Property Name="usr_add" Type="Int32" />
+          <NavigationProperty Name="id1" Relationship="Self.dbo_lgm_fk" FromRole="lgm" ToRole="id" />
+        </EntityType>
+        <EntityType Name="log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usr" Type="Int32" />
+          <Property Name="dt_tm" Type="DateTime" Precision="7" />
+          <Property Name="act" Type="Int32" />
+          <Property Name="descrip" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="marriage">
+          <Key>
+            <PropertyRef Name="id_marr" />
+          </Key>
+          <Property Name="wife" Type="Int32" />
+          <Property Name="seq_no" Type="Byte" />
+          <Property Name="mardt" Type="DateTime" Precision="7" />
+          <Property Name="husband" Type="Int32" />
+          <Property Name="src" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="updt" Type="DateTime" Precision="7" />
+          <Property Name="id_marr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="number" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="serial" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="memo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="usr" Type="Int32" />
+          <Property Name="usr_add" Type="Byte" />
+          <NavigationProperty Name="children" Relationship="Self.dbo_children_fk" FromRole="marriage" ToRole="children" />
+        </EntityType>
+        <EntityType Name="mylist">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sysid" Type="Int32" />
+          <Property Name="descrip" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="date" Type="DateTime" Precision="7" />
+          <Property Name="usr" Type="Int32" />
+        </EntityType>
+        <EntityType Name="names">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="sysid" Type="Int32" />
+          <Property Name="firstname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="lastname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="midlname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ind" Type="Byte" Nullable="false" />
+          <Property Name="updt" Type="DateTime" Precision="7" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usr" Type="Int32" />
+          <Property Name="usr_add" Type="Byte" />
+          <Property Name="type_doc" Type="Byte" />
+          <NavigationProperty Name="id1" Relationship="Self.dbo_names_fk" FromRole="names" ToRole="id" />
+        </EntityType>
+        <EntityType Name="relat">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="idsysid" Type="Int32" />
+          <Property Name="idrelat" Type="Byte" />
+          <Property Name="idrelt" Type="Int32" />
+          <Property Name="dozes" Type="Int32" />
+          <Property Name="updt" Type="DateTime" Precision="7" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usr" Type="Int32" />
+          <Property Name="usr_add" Type="Int32" />
+          <NavigationProperty Name="id1" Relationship="Self.dbo_relat_fk" FromRole="relat" ToRole="id" />
+        </EntityType>
+        <EntityType Name="service_sql">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descrip" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="sqlText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="autor" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="idparent" Type="Int32" />
+        </EntityType>
+        <EntityType Name="sich">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sysid" Type="Int32" />
+          <Property Name="meas_dt" Type="DateTime" Precision="0" />
+          <Property Name="Cs137" Type="Double" />
+          <Property Name="error_cs137" Type="Double" />
+          <Property Name="I131" Type="Double" />
+          <Property Name="error_i131" Type="Double" />
+          <Property Name="Co60" Type="Double" />
+          <Property Name="error_co60" Type="Double" />
+          <Property Name="M54" Type="Double" />
+          <Property Name="error_m54" Type="Double" />
+          <Property Name="Cr51" Type="Double" />
+          <Property Name="error_cr51" Type="Double" />
+          <Property Name="number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="updt" Type="DateTime" Precision="7" />
+          <Property Name="usr" Type="Int32" />
+          <Property Name="usr_add" Type="Int32" />
+          <NavigationProperty Name="id1" Relationship="Self.dbo_sich_fk" FromRole="sich" ToRole="id" />
+        </EntityType>
+        <EntityType Name="trades">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="sysid" Type="Int32" />
+          <Property Name="idtrade" Type="Int32" />
+          <Property Name="bgdt" Type="DateTime" Precision="0" />
+          <Property Name="enddt" Type="DateTime" Precision="0" />
+          <Property Name="updt" Type="DateTime" Precision="7" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usr" Type="Byte" />
+          <Property Name="usr_add" Type="Byte" />
+          <NavigationProperty Name="id1" Relationship="Self.dbo_trades_fk" FromRole="trades" ToRole="id" />
+        </EntityType>
+        <EntityType Name="Search">
+          <Key>
+            <PropertyRef Name="sysid" />
+            <PropertyRef Name="ind" />
+          </Key>
+          <Property Name="sysid" Type="Int32" Nullable="false" />
+          <Property Name="gender" Type="Byte" />
+          <Property Name="iin" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="stat_src" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="stat_dt" Type="DateTime" Precision="7" />
+          <Property Name="updt" Type="DateTime" Precision="7" />
+          <Property Name="indelete" Type="Byte" />
+          <Property Name="birthdt" Type="DateTime" Precision="0" />
+          <Property Name="usr_add" Type="Byte" />
+          <Property Name="usr" Type="Byte" />
+          <Property Name="firstname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="lastname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="midlname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ind" Type="Byte" Nullable="false" />
+        </EntityType>
+        <Association Name="dbo_adres_fk">
+          <End Role="id" Type="Self.id" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="adres" Type="Self.adres" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="id">
+              <PropertyRef Name="sysid" />
+            </Principal>
+            <Dependent Role="adres">
+              <PropertyRef Name="sysid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dbo_adres_fm_fk">
+          <End Role="id" Type="Self.id" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="adres_fm" Type="Self.adres_fm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="id">
+              <PropertyRef Name="sysid" />
+            </Principal>
+            <Dependent Role="adres_fm">
+              <PropertyRef Name="sysid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dbo_biomaterials_fk">
+          <End Role="id" Type="Self.id" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="biomaterials" Type="Self.biomaterials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="id">
+              <PropertyRef Name="sysid" />
+            </Principal>
+            <Dependent Role="biomaterials">
+              <PropertyRef Name="sysid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dbo_children_fk">
+          <End Role="marriage" Type="Self.marriage" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="children" Type="Self.children" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="marriage">
+              <PropertyRef Name="id_marr" />
+            </Principal>
+            <Dependent Role="children">
+              <PropertyRef Name="id_marr" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dbo_clc_diag_fk">
+          <End Role="id" Type="Self.id" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="clc_diag" Type="Self.clc_diag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="id">
+              <PropertyRef Name="sysid" />
+            </Principal>
+            <Dependent Role="clc_diag">
+              <PropertyRef Name="sysid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dbo_doc_inf_fk">
+          <End Role="id" Type="Self.id" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="doc_inf" Type="Self.doc_inf" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="id">
+              <PropertyRef Name="sysid" />
+            </Principal>
+            <Dependent Role="doc_inf">
+              <PropertyRef Name="sysid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dbo_doze_fk">
+          <End Role="id" Type="Self.id" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="doze" Type="Self.doze" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="id">
+              <PropertyRef Name="sysid" />
+            </Principal>
+            <Dependent Role="doze">
+              <PropertyRef Name="sysid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dbo_educated_fk">
+          <End Role="id" Type="Self.id" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="educated" Type="Self.educated" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="id">
+              <PropertyRef Name="sysid" />
+            </Principal>
+            <Dependent Role="educated">
+              <PropertyRef Name="sysid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dbo_idead_fk">
+          <End Role="id" Type="Self.id" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="idead" Type="Self.idead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="id">
+              <PropertyRef Name="sysid" />
+            </Principal>
+            <Dependent Role="idead">
+              <PropertyRef Name="sysid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dbo_lgm_fk">
+          <End Role="id" Type="Self.id" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="lgm" Type="Self.lgm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="id">
+              <PropertyRef Name="sysid" />
+            </Principal>
+            <Dependent Role="lgm">
+              <PropertyRef Name="sysid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dbo_names_fk">
+          <End Role="id" Type="Self.id" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="names" Type="Self.names" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="id">
+              <PropertyRef Name="sysid" />
+            </Principal>
+            <Dependent Role="names">
+              <PropertyRef Name="sysid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dbo_relat_fk">
+          <End Role="id" Type="Self.id" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="relat" Type="Self.relat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="id">
+              <PropertyRef Name="sysid" />
+            </Principal>
+            <Dependent Role="relat">
+              <PropertyRef Name="idsysid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dbo_sich_fk">
+          <End Role="id" Type="Self.id" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="sich" Type="Self.sich" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="id">
+              <PropertyRef Name="sysid" />
+            </Principal>
+            <Dependent Role="sich">
+              <PropertyRef Name="sysid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dbo_trades_fk">
+          <End Role="id" Type="Self.id" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="trades" Type="Self.trades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="id">
+              <PropertyRef Name="sysid" />
+            </Principal>
+            <Dependent Role="trades">
+              <PropertyRef Name="sysid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="gnamrEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="adres" EntityType="Self.adres" />
+          <EntitySet Name="adres_fm" EntityType="Self.adres_fm" />
+          <EntitySet Name="biomaterials" EntityType="Self.biomaterials" />
+          <EntitySet Name="children" EntityType="Self.children" />
+          <EntitySet Name="clc_diag" EntityType="Self.clc_diag" />
+          <EntitySet Name="doc_inf" EntityType="Self.doc_inf" />
+          <EntitySet Name="doze" EntityType="Self.doze" />
+          <EntitySet Name="edb" EntityType="Self.edb" />
+          <EntitySet Name="educated" EntityType="Self.educated" />
+          <EntitySet Name="id" EntityType="Self.id" />
+          <EntitySet Name="idead" EntityType="Self.idead" />
+          <EntitySet Name="lgm" EntityType="Self.lgm" />
+          <EntitySet Name="log" EntityType="Self.log" />
+          <EntitySet Name="marriage" EntityType="Self.marriage" />
+          <EntitySet Name="mylist" EntityType="Self.mylist" />
+          <EntitySet Name="names" EntityType="Self.names" />
+          <EntitySet Name="relat" EntityType="Self.relat" />
+          <EntitySet Name="service_sql" EntityType="Self.service_sql" />
+          <EntitySet Name="sich" EntityType="Self.sich" />
+          <EntitySet Name="trades" EntityType="Self.trades" />
+          <EntitySet Name="Search" EntityType="Self.Search" />
+          <AssociationSet Name="dbo_adres_fk" Association="Self.dbo_adres_fk">
+            <End Role="id" EntitySet="id" />
+            <End Role="adres" EntitySet="adres" />
+          </AssociationSet>
+          <AssociationSet Name="dbo_adres_fm_fk" Association="Self.dbo_adres_fm_fk">
+            <End Role="id" EntitySet="id" />
+            <End Role="adres_fm" EntitySet="adres_fm" />
+          </AssociationSet>
+          <AssociationSet Name="dbo_biomaterials_fk" Association="Self.dbo_biomaterials_fk">
+            <End Role="id" EntitySet="id" />
+            <End Role="biomaterials" EntitySet="biomaterials" />
+          </AssociationSet>
+          <AssociationSet Name="dbo_children_fk" Association="Self.dbo_children_fk">
+            <End Role="marriage" EntitySet="marriage" />
+            <End Role="children" EntitySet="children" />
+          </AssociationSet>
+          <AssociationSet Name="dbo_clc_diag_fk" Association="Self.dbo_clc_diag_fk">
+            <End Role="id" EntitySet="id" />
+            <End Role="clc_diag" EntitySet="clc_diag" />
+          </AssociationSet>
+          <AssociationSet Name="dbo_doc_inf_fk" Association="Self.dbo_doc_inf_fk">
+            <End Role="id" EntitySet="id" />
+            <End Role="doc_inf" EntitySet="doc_inf" />
+          </AssociationSet>
+          <AssociationSet Name="dbo_doze_fk" Association="Self.dbo_doze_fk">
+            <End Role="id" EntitySet="id" />
+            <End Role="doze" EntitySet="doze" />
+          </AssociationSet>
+          <AssociationSet Name="dbo_educated_fk" Association="Self.dbo_educated_fk">
+            <End Role="id" EntitySet="id" />
+            <End Role="educated" EntitySet="educated" />
+          </AssociationSet>
+          <AssociationSet Name="dbo_idead_fk" Association="Self.dbo_idead_fk">
+            <End Role="id" EntitySet="id" />
+            <End Role="idead" EntitySet="idead" />
+          </AssociationSet>
+          <AssociationSet Name="dbo_lgm_fk" Association="Self.dbo_lgm_fk">
+            <End Role="id" EntitySet="id" />
+            <End Role="lgm" EntitySet="lgm" />
+          </AssociationSet>
+          <AssociationSet Name="dbo_names_fk" Association="Self.dbo_names_fk">
+            <End Role="id" EntitySet="id" />
+            <End Role="names" EntitySet="names" />
+          </AssociationSet>
+          <AssociationSet Name="dbo_relat_fk" Association="Self.dbo_relat_fk">
+            <End Role="id" EntitySet="id" />
+            <End Role="relat" EntitySet="relat" />
+          </AssociationSet>
+          <AssociationSet Name="dbo_sich_fk" Association="Self.dbo_sich_fk">
+            <End Role="id" EntitySet="id" />
+            <End Role="sich" EntitySet="sich" />
+          </AssociationSet>
+          <AssociationSet Name="dbo_trades_fk" Association="Self.dbo_trades_fk">
+            <End Role="id" EntitySet="id" />
+            <End Role="trades" EntitySet="trades" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="gnamrModelStoreContainer" CdmEntityContainer="gnamrEntities">
+          <EntitySetMapping Name="adres">
+            <EntityTypeMapping TypeName="gnamrModel.adres">
+              <MappingFragment StoreEntitySet="adres">
+                <ScalarProperty Name="sysid" ColumnName="sysid" />
+                <ScalarProperty Name="idplace" ColumnName="idplace" />
+                <ScalarProperty Name="street" ColumnName="street" />
+                <ScalarProperty Name="box" ColumnName="box" />
+                <ScalarProperty Name="housenmb" ColumnName="housenmb" />
+                <ScalarProperty Name="postalindex" ColumnName="postalindex" />
+                <ScalarProperty Name="numbertel" ColumnName="numbertel" />
+                <ScalarProperty Name="indt" ColumnName="indt" />
+                <ScalarProperty Name="outdt" ColumnName="outdt" />
+                <ScalarProperty Name="doc_type" ColumnName="doc_type" />
+                <ScalarProperty Name="src" ColumnName="src" />
+                <ScalarProperty Name="ind" ColumnName="ind" />
+                <ScalarProperty Name="updt" ColumnName="updt" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="usr" ColumnName="usr" />
+                <ScalarProperty Name="usr_add" ColumnName="usr_add" />
+                <ScalarProperty Name="doze" ColumnName="doze" />
+                <ScalarProperty Name="room" ColumnName="room" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="adres_fm">
+            <EntityTypeMapping TypeName="gnamrModel.adres_fm">
+              <MappingFragment StoreEntitySet="adres_fm">
+                <ScalarProperty Name="sysid" ColumnName="sysid" />
+                <ScalarProperty Name="idrelat" ColumnName="idrelat" />
+                <ScalarProperty Name="idplace" ColumnName="idplace" />
+                <ScalarProperty Name="indt" ColumnName="indt" />
+                <ScalarProperty Name="indf" ColumnName="indf" />
+                <ScalarProperty Name="outdt" ColumnName="outdt" />
+                <ScalarProperty Name="outdf" ColumnName="outdf" />
+                <ScalarProperty Name="src" ColumnName="src" />
+                <ScalarProperty Name="ind" ColumnName="ind" />
+                <ScalarProperty Name="updt" ColumnName="updt" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_region" ColumnName="id_region" />
+                <ScalarProperty Name="id_area" ColumnName="id_area" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="biomaterials">
+            <EntityTypeMapping TypeName="gnamrModel.biomaterials">
+              <MappingFragment StoreEntitySet="biomaterials">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sysid" ColumnName="sysid" />
+                <ScalarProperty Name="dt" ColumnName="dt" />
+                <ScalarProperty Name="bioMaterialId" ColumnName="bioMaterialId" />
+                <ScalarProperty Name="availability" ColumnName="availability" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="descrip" ColumnName="descrip" />
+                <ScalarProperty Name="updt" ColumnName="updt" />
+                <ScalarProperty Name="usr" ColumnName="usr" />
+                <ScalarProperty Name="usr_add" ColumnName="usr_add" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="children">
+            <EntityTypeMapping TypeName="gnamrModel.children">
+              <MappingFragment StoreEntitySet="children">
+                <ScalarProperty Name="sysid" ColumnName="sysid" />
+                <ScalarProperty Name="id_marr" ColumnName="id_marr" />
+                <ScalarProperty Name="seq_no" ColumnName="seq_no" />
+                <ScalarProperty Name="idchild" ColumnName="idchild" />
+                <ScalarProperty Name="updt" ColumnName="updt" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_relat" ColumnName="id_relat" />
+                <ScalarProperty Name="usr" ColumnName="usr" />
+                <ScalarProperty Name="usr_add" ColumnName="usr_add" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clc_diag">
+            <EntityTypeMapping TypeName="gnamrModel.clc_diag">
+              <MappingFragment StoreEntitySet="clc_diag">
+                <ScalarProperty Name="sysid" ColumnName="sysid" />
+                <ScalarProperty Name="icd10" ColumnName="icd10" />
+                <ScalarProperty Name="diag_dt" ColumnName="diag_dt" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="updt" ColumnName="updt" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="diag_type" ColumnName="diag_type" />
+                <ScalarProperty Name="usr" ColumnName="usr" />
+                <ScalarProperty Name="usr_add" ColumnName="usr_add" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="doc_inf">
+            <EntityTypeMapping TypeName="gnamrModel.doc_inf">
+              <MappingFragment StoreEntitySet="doc_inf">
+                <ScalarProperty Name="sysid" ColumnName="sysid" />
+                <ScalarProperty Name="doc_type" ColumnName="doc_type" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="serial" ColumnName="serial" />
+                <ScalarProperty Name="memo" ColumnName="memo" />
+                <ScalarProperty Name="src" ColumnName="src" />
+                <ScalarProperty Name="updt" ColumnName="updt" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="pict" ColumnName="pict" />
+                <ScalarProperty Name="usr" ColumnName="usr" />
+                <ScalarProperty Name="usr_add" ColumnName="usr_add" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="doze">
+            <EntityTypeMapping TypeName="gnamrModel.doze">
+              <MappingFragment StoreEntitySet="doze">
+                <ScalarProperty Name="sysid" ColumnName="sysid" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="dozemdt" ColumnName="dozemdt" />
+                <ScalarProperty Name="updt" ColumnName="updt" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="doz_param" ColumnName="doz_param" />
+                <ScalarProperty Name="doc_type" ColumnName="doc_type" />
+                <ScalarProperty Name="usr" ColumnName="usr" />
+                <ScalarProperty Name="usr_add" ColumnName="usr_add" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="edb">
+            <EntityTypeMapping TypeName="gnamrModel.edb">
+              <MappingFragment StoreEntitySet="edb">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sysid" ColumnName="sysid" />
+                <ScalarProperty Name="iin" ColumnName="iin" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="midlname" ColumnName="midlname" />
+                <ScalarProperty Name="birtdt" ColumnName="birtdt" />
+                <ScalarProperty Name="src" ColumnName="src" />
+                <ScalarProperty Name="idnational" ColumnName="idnational" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="usr" ColumnName="usr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="educated">
+            <EntityTypeMapping TypeName="gnamrModel.educated">
+              <MappingFragment StoreEntitySet="educated">
+                <ScalarProperty Name="sysid" ColumnName="sysid" />
+                <ScalarProperty Name="ideduct" ColumnName="ideduct" />
+                <ScalarProperty Name="serial" ColumnName="serial" />
+                <ScalarProperty Name="idtrade" ColumnName="idtrade" />
+                <ScalarProperty Name="usr" ColumnName="usr" />
+                <ScalarProperty Name="updt" ColumnName="updt" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="usr_add" ColumnName="usr_add" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="id">
+            <EntityTypeMapping TypeName="gnamrModel.id">
+              <MappingFragment StoreEntitySet="id">
+                <ScalarProperty Name="sysid" ColumnName="sysid" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="stat_src" ColumnName="stat_src" />
+                <ScalarProperty Name="stat_dt" ColumnName="stat_dt" />
+                <ScalarProperty Name="updt" ColumnName="updt" />
+                <ScalarProperty Name="iin" ColumnName="iin" />
+                <ScalarProperty Name="usr" ColumnName="usr" />
+                <ScalarProperty Name="idnational" ColumnName="idnational" />
+                <ScalarProperty Name="indelete" ColumnName="indelete" />
+                <ScalarProperty Name="sysid_duble" ColumnName="sysid_duble" />
+                <ScalarProperty Name="idplace" ColumnName="idplace" />
+                <ScalarProperty Name="birthdt" ColumnName="birthdt" />
+                <ScalarProperty Name="usr_add" ColumnName="usr_add" />
+                <ScalarProperty Name="id_kagort" ColumnName="id_kagort" />
+                <ScalarProperty Name="isstacionar" ColumnName="isstacionar" />
+                <ScalarProperty Name="idFather" ColumnName="idFather" />
+                <ScalarProperty Name="idMother" ColumnName="idMother" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="idead">
+            <EntityTypeMapping TypeName="gnamrModel.idead">
+              <MappingFragment StoreEntitySet="idead">
+                <ScalarProperty Name="sysid" ColumnName="sysid" />
+                <ScalarProperty Name="icd10" ColumnName="icd10" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="deaddt" ColumnName="deaddt" />
+                <ScalarProperty Name="ind" ColumnName="ind" />
+                <ScalarProperty Name="updt" ColumnName="updt" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="usr" ColumnName="usr" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="usr_add" ColumnName="usr_add" />
+                <ScalarProperty Name="icd9" ColumnName="icd9" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lgm">
+            <EntityTypeMapping TypeName="gnamrModel.lgm">
+              <MappingFragment StoreEntitySet="lgm">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sysid" ColumnName="sysid" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="meas_dt" ColumnName="meas_dt" />
+                <ScalarProperty Name="dicentrics" ColumnName="dicentrics" />
+                <ScalarProperty Name="fragments" ColumnName="fragments" />
+                <ScalarProperty Name="Translocation" ColumnName="Translocation" />
+                <ScalarProperty Name="Ring_chromosome" ColumnName="Ring_chromosome" />
+                <ScalarProperty Name="cg_prep" ColumnName="cg_prep" />
+                <ScalarProperty Name="relat" ColumnName="relat" />
+                <ScalarProperty Name="updt" ColumnName="updt" />
+                <ScalarProperty Name="usr" ColumnName="usr" />
+                <ScalarProperty Name="usr_add" ColumnName="usr_add" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="log">
+            <EntityTypeMapping TypeName="gnamrModel.log">
+              <MappingFragment StoreEntitySet="log">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="usr" ColumnName="usr" />
+                <ScalarProperty Name="dt_tm" ColumnName="dt_tm" />
+                <ScalarProperty Name="act" ColumnName="act" />
+                <ScalarProperty Name="descrip" ColumnName="descrip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="marriage">
+            <EntityTypeMapping TypeName="gnamrModel.marriage">
+              <MappingFragment StoreEntitySet="marriage">
+                <ScalarProperty Name="wife" ColumnName="wife" />
+                <ScalarProperty Name="seq_no" ColumnName="seq_no" />
+                <ScalarProperty Name="mardt" ColumnName="mardt" />
+                <ScalarProperty Name="husband" ColumnName="husband" />
+                <ScalarProperty Name="src" ColumnName="src" />
+                <ScalarProperty Name="updt" ColumnName="updt" />
+                <ScalarProperty Name="id_marr" ColumnName="id_marr" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="serial" ColumnName="serial" />
+                <ScalarProperty Name="memo" ColumnName="memo" />
+                <ScalarProperty Name="usr" ColumnName="usr" />
+                <ScalarProperty Name="usr_add" ColumnName="usr_add" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mylist">
+            <EntityTypeMapping TypeName="gnamrModel.mylist">
+              <MappingFragment StoreEntitySet="mylist">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sysid" ColumnName="sysid" />
+                <ScalarProperty Name="descrip" ColumnName="descrip" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="usr" ColumnName="usr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="names">
+            <EntityTypeMapping TypeName="gnamrModel.names">
+              <MappingFragment StoreEntitySet="names">
+                <ScalarProperty Name="sysid" ColumnName="sysid" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="midlname" ColumnName="midlname" />
+                <ScalarProperty Name="ind" ColumnName="ind" />
+                <ScalarProperty Name="updt" ColumnName="updt" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="usr" ColumnName="usr" />
+                <ScalarProperty Name="usr_add" ColumnName="usr_add" />
+                <ScalarProperty Name="type_doc" ColumnName="type_doc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="relat">
+            <EntityTypeMapping TypeName="gnamrModel.relat">
+              <MappingFragment StoreEntitySet="relat">
+                <ScalarProperty Name="idsysid" ColumnName="idsysid" />
+                <ScalarProperty Name="idrelat" ColumnName="idrelat" />
+                <ScalarProperty Name="idrelt" ColumnName="idrelt" />
+                <ScalarProperty Name="dozes" ColumnName="dozes" />
+                <ScalarProperty Name="updt" ColumnName="updt" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="usr" ColumnName="usr" />
+                <ScalarProperty Name="usr_add" ColumnName="usr_add" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="service_sql">
+            <EntityTypeMapping TypeName="gnamrModel.service_sql">
+              <MappingFragment StoreEntitySet="service_sql">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descrip" ColumnName="descrip" />
+                <ScalarProperty Name="sqlText" ColumnName="sqlText" />
+                <ScalarProperty Name="autor" ColumnName="autor" />
+                <ScalarProperty Name="idparent" ColumnName="idparent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sich">
+            <EntityTypeMapping TypeName="gnamrModel.sich">
+              <MappingFragment StoreEntitySet="sich">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sysid" ColumnName="sysid" />
+                <ScalarProperty Name="meas_dt" ColumnName="meas_dt" />
+                <ScalarProperty Name="Cs137" ColumnName="Cs137" />
+                <ScalarProperty Name="error_cs137" ColumnName="error_cs137" />
+                <ScalarProperty Name="I131" ColumnName="I131" />
+                <ScalarProperty Name="error_i131" ColumnName="error_i131" />
+                <ScalarProperty Name="Co60" ColumnName="Co60" />
+                <ScalarProperty Name="error_co60" ColumnName="error_co60" />
+                <ScalarProperty Name="M54" ColumnName="M54" />
+                <ScalarProperty Name="error_m54" ColumnName="error_m54" />
+                <ScalarProperty Name="Cr51" ColumnName="Cr51" />
+                <ScalarProperty Name="error_cr51" ColumnName="error_cr51" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="updt" ColumnName="updt" />
+                <ScalarProperty Name="usr" ColumnName="usr" />
+                <ScalarProperty Name="usr_add" ColumnName="usr_add" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="trades">
+            <EntityTypeMapping TypeName="gnamrModel.trades">
+              <MappingFragment StoreEntitySet="trades">
+                <ScalarProperty Name="sysid" ColumnName="sysid" />
+                <ScalarProperty Name="idtrade" ColumnName="idtrade" />
+                <ScalarProperty Name="bgdt" ColumnName="bgdt" />
+                <ScalarProperty Name="enddt" ColumnName="enddt" />
+                <ScalarProperty Name="updt" ColumnName="updt" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="usr" ColumnName="usr" />
+                <ScalarProperty Name="usr_add" ColumnName="usr_add" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Search">
+            <EntityTypeMapping TypeName="gnamrModel.Search">
+              <MappingFragment StoreEntitySet="Search">
+                <ScalarProperty Name="sysid" ColumnName="sysid" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="iin" ColumnName="iin" />
+                <ScalarProperty Name="stat_src" ColumnName="stat_src" />
+                <ScalarProperty Name="stat_dt" ColumnName="stat_dt" />
+                <ScalarProperty Name="updt" ColumnName="updt" />
+                <ScalarProperty Name="indelete" ColumnName="indelete" />
+                <ScalarProperty Name="birthdt" ColumnName="birthdt" />
+                <ScalarProperty Name="usr_add" ColumnName="usr_add" />
+                <ScalarProperty Name="usr" ColumnName="usr" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="midlname" ColumnName="midlname" />
+                <ScalarProperty Name="ind" ColumnName="ind" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
