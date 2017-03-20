@@ -1,0 +1,19 @@
+﻿/*.my_style .webix_hcell {
+    background: #001166;
+    color: white;
+    font-weight: bold;
+}
+
+.my_style .webix_column {
+    font-style: italic;
+    background: #ddFFdd;
+}
+
+.my_style .webix_column > div {
+    border-color: #ddd;
+}
+*/
+.my_style .webix_ss_header{
+    height: 27px;
+    border-color: #ddd;
+}

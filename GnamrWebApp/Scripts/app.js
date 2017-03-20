@@ -1,4 +1,5 @@
-﻿var countWindow = 0;
+﻿var searchWindowId = 0;
+var anketWindowId = 0;
 
 var searchWindow;
 var anketWindow;
@@ -6,13 +7,14 @@ var anketWindow;
 $(document).ready(function () {
 
     $('#showFindWindow').on('click', function () {
-        countWindow += 1;
-        searchWindow = new SearchWindow("Поиск", countWindow, OpenWindowSysid);
+        searchWindowId += 1;
+        searchWindow = new SearchWindow("Поиск", searchWindowId, OpenWindowSysid, "Измайлова");
         searchWindow.init("MyCart");
     });
 });
 
 function OpenWindowSysid(sysid) {
-    anketWindow = new AnketWindow(sysid);
-    anketWindow.init("sysid ");
+    anketWindowId += 1;
+    anketWindow = new AnketWindow(sysid, anketWindowId);
+    anketWindow.init();
 }

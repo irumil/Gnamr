@@ -4,46 +4,32 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+   @Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
 
     <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
-  
+
     <script src="~/Scripts/free-jqGrid/jquery.jqgrid.min.js"></script>
     <script src="~/Scripts/free-jqGrid/i18n/grid.locale-ru.min.js"></script>
     <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
 
     <link href="~/Content/ui.jqgrid.min.css" rel="stylesheet" />
     <link href="~/Content/main.css" rel="stylesheet" />
+
+
+
+
+
+
    
 
 
 
 </head>
 <body>
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            @Html.ActionLink("Гнамр", "Index", "Home", null, new {@class = "navbar-brand"})
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a id="showFindWindow">Поиск...</a></li>
-                <!--<li>@Html.ActionLink("Home", "Index", "Home", new {area = ""}, null)</li>
-                <li>@Html.ActionLink("API", "Index", "Help", new {area = ""}, null)</li>-->
-                
-</ul>
-        </div>
-    </div>
-</div>
 
    
 
@@ -52,12 +38,8 @@
     
 </div>
 
-<div id="MainWindow">
-</div>
 
-<script src="~/Scripts/app.js"></script>
-<script src="~/Scripts/searchWindow.js"></script>
-<script src="~/Scripts/AnketWindow.js"></script>
+
 
 
 </body>

@@ -63,9 +63,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GnamrDAL\GnamrDAL.csproj">
-      <Project>{867c1966-4c3a-4fe8-bae3-51135a960fa8}</Project>
-      <Name>GnamrDAL</Name>
+    <ProjectReference Include="..\GnamrDLLEF\GnamrDLLEF.csproj">
+      <Project>{c772db95-75f5-48dd-b695-7ea2acc85e24}</Project>
+      <Name>GnamrDLLEF</Name>
     </ProjectReference>
     <ProjectReference Include="..\Helpers\Helpers.csproj">
       <Project>{34173fee-ffbb-49ff-b7f6-e7da1cb4e03a}</Project>

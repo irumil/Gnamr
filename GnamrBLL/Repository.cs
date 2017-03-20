@@ -5,53 +5,53 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
-using GnamrDAL;
+using GnamrDLLEF;
 using Helpers;
 
 namespace GnamrBLL
 {
     public class Repository
     {
-        public static gnamrEntities Context = new gnamrEntities();
+        public static GnamrContext Context = new GnamrDLLEF.GnamrContext();
 
-        public static List<Search> Search(string text, FindModel param)
+        public static List<Search> Search(FindModel param)
         {
             IEnumerable<Search> result = new List<Search>{new Search(){firstname = "Нет данных"}};
-            
-            if (text == String.Empty) return result.ToList();
+
+            if (param.TextSearch == String.Empty) return result.ToList();
 
             int sysid = 0;
-            bool isSysid = Int32.TryParse(text, out sysid);
+            bool isSysid = Int32.TryParse(param.TextSearch, out sysid);
 
             //если в строке число
             if (isSysid) result = GetBySysid(sysid);
             else
             
             //если диапазон
-            if (text.Contains("-")) result = GetIntervalSysid(text);
+            if (param.TextSearch.Contains("-")) result = GetIntervalSysid(param.TextSearch);
             else
             //если список
-            if (text.Contains(",")) result = GetListSysid(text);
+            if (param.TextSearch.Contains(",")) result = GetListSysid(param.TextSearch);
             else
 
             //если нет пробела
-            if (!text.Contains(" ")) result = GetByName(text, param);
+            if (!param.TextSearch.Contains(" ")) result = GetByName(param.TextSearch, param);
             else
 
             //если два слова
-            if (text.Contains(" ")) result = GetByNames(text, param);
+            if (param.TextSearch.Contains(" ")) result = GetByNames(param.TextSearch, param);
             
 
             return result.ToList();
         }
 
-        private static IEnumerable<Search> GetListSysid(string text)
+        private static IQueryable<Search> GetListSysid(string text)
         {
             var sysids = HelpersFunction.GetIntFromStringByComma(text);
             return Context.Search.Where(s => sysids.Contains(s.sysid));
         }
 
-        private static IEnumerable<Search> GetIntervalSysid(string text)
+        private static IQueryable<Search> GetIntervalSysid(string text)
         {
             var first = HelpersFunction.GetIntFromStringByDefis(text)[0];
             var second = HelpersFunction.GetIntFromStringByDefis(text)[1];
@@ -64,7 +64,7 @@ namespace GnamrBLL
             var name0 = HelpersFunction.GetStringsBySpace(text)[0];
             var name1 = HelpersFunction.GetStringsBySpace(text)[1];
 
-            IEnumerable<Search> result;
+            IQueryable<Search> result;
             if (param.MatchEndings)
               result = Context.Search.Where(x => (x.firstname.Contains(name0) & x.lastname.Contains(name1)) 
                   | (x.firstname.Contains(name1) & x.lastname.Contains(name0)) );
@@ -74,10 +74,9 @@ namespace GnamrBLL
             return result;
         }
 
-        private static IEnumerable<Search> GetByName(string text, FindModel param)
+        private static IQueryable<Search> GetByName(string text, FindModel param)
         {
-            
-            IEnumerable<Search> result;
+            IQueryable<Search> result;
 
             if (param.MatchEndings)
                 result = Context.Search.Where(x => (x.firstname.Contains(text) | x.lastname.Contains(text)));
@@ -86,9 +85,9 @@ namespace GnamrBLL
             return result;
         }
 
-        private static IEnumerable<Search> GetBySysid(int sysid)
+        private static IQueryable<Search> GetBySysid(int sysid)
         {
-            IEnumerable<Search> result = Context.Search.Where(x=>x.sysid == sysid);
+            IQueryable<Search> result = Context.Search.Where(x => x.sysid == sysid);
             return result;
         }
 
@@ -97,5 +96,38 @@ namespace GnamrBLL
             var result = Context.Search.OrderByDescending(x=>x.sysid).Take(50).ToList();
             return result;
         }
+
+        public static directories  GetDirectorieses()
+        {
+            var direcotries = new directories
+            {
+                DocTypes = Context.DocTypes.ToList(),
+                Dbsourses = Context.Dbsourses.ToList(),
+                Nationals = Context.Nationals.OrderByDescending(x=>x.rating).ToList(),
+                Genders = Context.Genders.ToList()
+            };
+
+
+            return direcotries;
+        }
+        /*
+        public static Id Get(int sysid)
+        {
+            var re = (from i in Context.id
+                where i.sysid == sysid 
+                select i).First();
+            //var result = Context.id.Find(sysid);
+            return re;
+        }
+
+        public static List<names> GetNames(int sysid)
+        {
+
+            
+            //Context.ContextOptions.LazyLoadingEnabled = true;
+
+            var result = Context.names.Where(x => x.sysid == sysid).ToList();
+            return result;
+        }*/
     }
 }

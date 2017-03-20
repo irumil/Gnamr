@@ -40,3 +40,27 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+
+
+/* авто ширина сеток*/
+.jqgrid-fluid-width > .ui-jqgrid {
+      max-width: 100% !important;
+      width: auto !important;
+}
+
+.jqgrid-fluid-width > .ui-jqgrid > .ui-jqgrid-view,
+.jqgrid-fluid-width > .ui-jqgrid > .ui-jqgrid-view > .ui-jqgrid-hdiv,
+.jqgrid-fluid-width > .ui-jqgrid > .ui-jqgrid-view > .ui-jqgrid-bdiv {
+      width: auto !important;
+      height: auto !important;
+}
+
+/* enable scrollbar */
+.ui-jqgrid-bdiv {
+    overflow: auto
+}
+
+#container { 
+    width: 100%;
+    /*margin: 0 1%; */
+}

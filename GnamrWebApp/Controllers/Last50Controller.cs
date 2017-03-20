@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using GnamrBLL;
-using GnamrDAL;
+using GnamrDLLEF;
 
 namespace GnamrWebApp.Controllers
 {

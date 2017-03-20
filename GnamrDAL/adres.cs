@@ -15,7 +15,7 @@ namespace GnamrDAL
     public partial class adres
     {
         public Nullable<int> sysid { get; set; }
-        public Nullable<int> idplace { get; set; }
+        public adres idplace { get; set; }
         public string street { get; set; }
         public Nullable<byte> box { get; set; }
         public string housenmb { get; set; }

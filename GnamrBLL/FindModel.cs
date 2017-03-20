@@ -8,6 +8,7 @@ namespace GnamrBLL
 {
     public class FindModel
     {
+        public string TextSearch { get; set; }
         public bool MatchEndings { get; set; }
         public bool CharacterSelection { get; set; }
     }
