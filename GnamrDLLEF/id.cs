@@ -23,10 +23,10 @@ namespace GnamrDLLEF
         public byte? indelete { get; set; }
         public int? sysid_duble { get; set; }
 
-        [DataType(DataType.Date)] 
+        //[DataType(DataType.Date)] 
         //[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
-        [Column(TypeName = "Date")]
-        public DateTime? date { get; set;}
+        //[Column(TypeName = "Date")]
+       // public DateTime? date { get; set;}
 
         [DataType(DataType.Date)]
         [Column(TypeName = "Date")]

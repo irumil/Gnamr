@@ -6,56 +6,36 @@ function PlaceWindow(obj, countWindow, openWindowSysid, findText) {
 
     this.init = function (name) {
         placeWindow.show({ x: 300, y: 50 }); //$$("searchWindow").show({ x: 300, y: 50 });
+        return 'init';
     };
 
     var placeWindowId = "placeWindow";
     var searchToolId = "searchTool";
 
 
-    var treedata = [
-  { id: "1", value: "Book 1", data: [
-    { id: "1.1", value: "Part 1" },
-    { id: "1.2", value: "Part 2" }
-  ]},
-  { id: "2", value: "Book 2", data: [
-    { id: "2.1", value: "Part 1" }
-  ]}
-    ];
- 
-    //var tree = ({ view: "tree", data: treedata });
-
     var tree = ({
         view: "treetable",
         columns: [
-            { id: "id", header: "", css: { "text-align": "right" } },
-            { id: "descrip", header: "descrip", template: "{common.treetable()} #descrip#" },
-            { id: "id_parent", header: "id_parent" },
-            { id: "d_max", header: "d_max"},
-            
+            { id: "value", header: "Населенный пункт", width: 300,template: "{common.treetable()} #value#" },
+            { id: "d_max", header: "Зона"},
         ],
-        autoheight: true,
-        autowidth: true,
+        select: "row",scroll:true,
+        url: "api/places",
+        on: {
+            onItemDblClick: function(id, e, node) {
+                var item = this.getItem(id);
+                PlaceWindow = item;
+                //$$(placeWindowId).close();
+                //console.log(item.id);
 
-        url: "api/places"
+            }
+        }
     });
 
+    function closeWindow() {
+        $$(placeWindowId).close();
+    }
     
-    var searchTool = {
-        view: "fieldset", label: "ИИН/sysid/фамилия/имя/список sysid через запятую",
-        id: searchToolId,
-        body: {
-            rows: [
-                {
-                    cols: [
-                          { view: "text", id: "ss", value: findText, placeholder: "ИИН/sysid/фамилия/имя/список sysid через запятую...", width: 350 },
-                          { view: "button", value: "Поиск", width: 100 /*, click: search */},
-                          { view: "button", width: 100, value: "Последние 50"}, {}
-                    ]
-                },
-            ]
-        }
-    };
-
 
     placeWindow = webix.ui({
         view: "window",
@@ -63,7 +43,7 @@ function PlaceWindow(obj, countWindow, openWindowSysid, findText) {
         resize: true,
         width: 450,
         height: 600,
-        modal:true,
+        modal: true,
         move: true,
         head: {
             height: 25,
@@ -71,11 +51,35 @@ function PlaceWindow(obj, countWindow, openWindowSysid, findText) {
             cols: [
                 { view: "label", label: "Выбор населенного пункта" },
                 { view: "icon", icon: "cog", css: "alter", click: "webix.message('Cog pressed')" },
-                { view: "icon", icon: "times-circle", click: function () { $$(placeWindowId).close(); } }
+                { view: "icon", icon: "times-circle", click: function() { $$(placeWindowId).close(); } }
             ]
         },
+        on: {
+            onHide: function(){
+                console.log('onHide');
+            },
+            onShow: function() {
+                console.log('onShow');
+            },
+            onDestruct: function() {
+                console.log('onDesctct');
+                
+            }
+        },
 
-        body: { rows: [searchTool, tree] }
+        body: {
+            rows: [
+                {
+                    cols: [
+                        { view: "text", id: "searchPlace", value: findText, placeholder: "(текст для поиска)", width: 250 },
+                        { view: "button", value: "Поиск", width: 50 /*, click: search */
+                        },
+                        {}
+                    ]
+                },
+                tree
+            ]
+        }
     });
 
 };

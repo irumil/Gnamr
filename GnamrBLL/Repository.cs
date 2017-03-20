@@ -93,7 +93,7 @@ namespace GnamrBLL
 
         public static List<Search> GetLast50()
         {
-            var result = Context.Search.OrderByDescending(x=>x.sysid).Take(50).ToList();
+            var result = Context.Search.Where(x=>x.ind==1).OrderByDescending(x=>x.sysid).Take(50).ToList();
             return result;
         }
 

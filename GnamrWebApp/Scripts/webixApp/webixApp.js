@@ -33,7 +33,8 @@ function OpenWindowSysid(sysid) {
 function openPlaceWindow(idplace) {
     console.log("Откровем окно нас.пунктов");
     placeWindow = new PlaceWindow(idplace);
-    placeWindow.init();
+    placeWindow.init()
+    //nsole.log(placeWindow);
 }
 
 webix.i18n.setLocale("ru-RU");

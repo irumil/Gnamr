@@ -46,7 +46,6 @@ function SearchWindow(obj, countWindow, openWindowSysid, findText) {
                 var item = this.getItem(id);
                 openWindowSysid(item.sysid);
             }
-            
         }
     };
 
