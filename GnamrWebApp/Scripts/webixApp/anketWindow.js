@@ -3,14 +3,14 @@ function AnketWindow(sysid, anketWindowId, openPlaceSysid) {
 
     //апи урлы
     var urlId = '/api/id?sysid=' + sysid;
-    var urlNames = '/api/names/';
+    var urlNames = '/api/names';
     var urlAdres = '/api/adreses';
-    var urlDiagnos = '/api/diagnoses/';
+    var urlDiagnos = '/api/diagnoses';
     
     var anketWindow;
 
     this.init = function (name) {
-        anketWindow.show({ x: 300, y: 50 }); //$$("searchWindow").show({ x: 300, y: 50 });
+        anketWindow.show({ x: 300, y: 50 }); 
     };
 
     var idTable = "idDatatable" + anketWindowId;
@@ -45,17 +45,9 @@ function AnketWindow(sysid, anketWindowId, openPlaceSysid) {
         columns: [
             { id: "id", editor: "text", header: "id", hidden: true, sort: "int" },
             { id: "sysid", editor: "text", header: { height: 22, text: "sysid" }, hidden: true },
-            { id: "lastname", editor: "text", header: "Фамилия", width: 120 },
-            { id: "firstname", editor: "text", header: "Имя", width: 120 },
-            { id: "midlname", editor: "text", header: "Отчество", width: 120 },
-            { id: "ind", header: "Дост.", width: 40, template: "{common.checkbox()}" },
-            {
-                id: "type_doc", editor: "combo", options: directories.DocTypes,
-                header: "Тип документа", width: 150
-            },
-            { id: "updt", header: "Обновление", width: 150},
-            { id: "usr", header: "Изменил", width: 40},
-            { id: "usr_add",  header: "Добавил", width: 40}, {}
+            { id: "lastname", editor: "text", header: "Фамилия", width: 120 },{ id: "firstname", editor: "text", header: "Имя", width: 120 },{ id: "midlname", editor: "text", header: "Отчество", width: 120 },
+            { id: "ind", header: "Дост.", width: 40, template: "{common.checkbox()}" },{ id: "type_doc", editor: "combo", options: directories.DocTypes, header: "Тип документа", width: 150},
+            { id: "updt", header: "Обновление", width: 150},{ id: "usr", header: "Изменил", width: 40},{ id: "usr_add",  header: "Добавил", width: 40}, {}
         ]
     };
    
@@ -73,57 +65,58 @@ function AnketWindow(sysid, anketWindowId, openPlaceSysid) {
         height: 250,
         cells:[
             {
-                header: "Адреса", width: 50,
+                header: "Адреса", width: 150,
                 body: {
                     view: "fieldset",
                     label: "",
                     body: {
                         rows: [
                             {
-                                view: "datatable", id: adresTable, resizeColumn: true, height: 120,   leftSplit: 2,  rowHeight: 22, rowLineHeight: 25, select: "row", editable: true, scroll: true,
+                                view: "datatable", id: adresTable, resizeColumn: true, height: 160,   leftSplit: 2,  rowHeight: 22, rowLineHeight: 25, select: "row", editable: true, scroll: true,
                                 url: urlAdres + '/?sysid=' + sysid,
                                 save: "rest->" + urlAdres,
                                 columns: [
                                     { id: "id", editor: "text", header: "id", hidden: true, sort: "int" },
                                     { id: "sysid", editor: "text", header: { height: 22, text: "sysid" }, hidden: true },
-                                    { id: "idplace", editor: "text", header: "idplace", width: 120 },
+                                    { id: "idplace", header: "idplace", width: 120 },
                                     { id: "indt", header: "indt", width: 70, editor: "date", format: webix.i18n.dateFormatStr },
                                     { id: "outdt", header: "outdt", width: 70, editor: "date", format: webix.i18n.dateFormatStr },
-                                    { id: "src", editor: "combo", options: directories.Dbsourses, header: "Исчтоник", width: 100 },
-                                    { id: "doc_type", editor: "combo", options: directories.DocTypes, header: "Тип документа", width: 150 },
-                                    { id: "ind", header: "Дост.", width: 40, template: "{common.checkbox()}" },
-                                    { id: "street", editor: "text", header: "street", width: 120 },
-                                    { id: "box", editor: "text", header: "box", width: 120 },
-                                    { id: "housenmb", editor: "text", header: "housenmb", width: 120 },
-                                    
-                                    { id: "postalindex", header: "postalindex", width: 150 },
-                                    { id: "numbertel", header: "numbertel", width: 150 },
-                                    
-                                    { id: "updt", header: "Обновление", width: 150 },
-                                    { id: "usr", header: "Изменил", width: 40 },
+                                    { id: "src", editor: "combo", options: directories.Dbsourses, header: "Исчтоник", width: 100 },{ id: "doc_type", editor: "combo", options: directories.DocTypes, header: "Тип документа", width: 150 },{ id: "ind", header: "Дост.", width: 40, template: "{common.checkbox()}" },{ id: "street", editor: "text", header: "street", width: 120 },{ id: "box", editor: "text", header: "box", width: 120 },{ id: "housenmb", editor: "text", header: "housenmb", width: 120 },{ id: "postalindex", header: "postalindex", width: 150 },{ id: "numbertel", header: "numbertel", width: 150 },
+                                    { id: "updt", header: "Обновление", width: 150 },{ id: "usr", header: "Изменил", width: 40 },
                                     { id: "usr_add", header: "Добавил", width: 40 }, {}
                                 ],
                                 on: {
                                     onItemDblClick: function(id, e, node) {
-                                        console.log("2 rkbr");
                                         var item = this.getItem(id);
-                                        openPlaceSysid(item.idplace);
+                                        openPlaceSysid(item.idplace, item.id, item, savePlace);
                                     }
+                                },
+                                rules: {
+                                 //   col_name: webix.rules.isNotEmpty
                                 }
                             }, toolbarForGrid(adresTable)
                         ]
                     }
                 }
             },
-            { header: "Документы", width: 50, body: {} },
-            { header: "Дозы/Сич", width: 150, body: {} },
-            { header: "Диагнозы", width: 200, body: {} },
-            { header: "Родители", width: 100, body: {} },
-            { header: "Семья", width: 50, body: {} },
-            { header: "Профессии", width: 200, body: {} },
-            { header: "Родственники", width: 50, body: {} },
+            { header: "Документы", width: 100, body: {} }, { header: "Дозы/Сич", width: 100, body: {} }, { header: "Диагнозы", width: 100, body: {} }, { header: "Родители", width: 100, body: {} }, { header: "Семья", width: 50, body: {} },{ header: "Профессии", width: 50, body: {} }, { header: "Родственники", width: 50, body: {} },
         ]
     };
+
+    function savePlace(id, idPlace, item) {
+        console.log('AnketWindow savePlace function ' + id + ' ' + idPlace);
+        console.log(item);
+        item["idplace"] = idPlace;
+        $$(adresTable).refresh();
+
+        /*
+        record = grid.getItem(row_id);
+record[column_name] = new_value;
+ 
+grid.refresh();
+//or
+grid.updateItem(row_id, record);*/
+    }
 
     //namesTable
     function toolbarForGrid(gridName) {

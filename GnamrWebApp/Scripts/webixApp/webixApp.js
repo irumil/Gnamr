@@ -30,10 +30,10 @@ function OpenWindowSysid(sysid) {
     anketWindow.init();
 }
 
-function openPlaceWindow(idplace) {
-    console.log("Откровем окно нас.пунктов");
-    placeWindow = new PlaceWindow(idplace);
-    placeWindow.init()
+function openPlaceWindow(idplace, idadres, item,  SavePlaceId) {
+    console.log("Откровем окно нас.пунктов"); 
+    placeWindow = new PlaceWindow(idplace,  idadres, item, SavePlaceId);
+    placeWindow.init();
     //nsole.log(placeWindow);
 }
 

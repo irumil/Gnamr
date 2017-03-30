@@ -1,6 +1,6 @@
 ﻿
 
-function PlaceWindow(obj, countWindow, openWindowSysid, findText) {
+function PlaceWindow(obj, idadres, itemAdres, SavePlaceId) {
 
     var placeWindow;
 
@@ -17,37 +17,26 @@ function PlaceWindow(obj, countWindow, openWindowSysid, findText) {
         view: "treetable",
         columns: [
             { id: "value", header: "Населенный пункт", width: 300,template: "{common.treetable()} #value#" },
-            { id: "d_max", header: "Зона"},
+            { id: "d_max", header: "Зона"}
         ],
         select: "row",scroll:true,
         url: "api/places",
         on: {
             onItemDblClick: function(id, e, node) {
                 var item = this.getItem(id);
-                PlaceWindow = item;
+                //PlaceWindow = item;
+                SavePlaceId(idadres, item.id, itemAdres);
                 //$$(placeWindowId).close();
-                //console.log(item.id);
-
+                console.log('PlaceWindow onItemDblClick ' + item.id);
             }
         }
     });
-
-    function closeWindow() {
-        $$(placeWindowId).close();
-    }
     
-
     placeWindow = webix.ui({
-        view: "window",
-        id: placeWindowId,
-        resize: true,
-        width: 450,
-        height: 600,
-        modal: true,
-        move: true,
+        view: "window",id: placeWindowId,resize: true,
+        width: 450,height: 600,modal: true,move: true,
         head: {
-            height: 25,
-            view: "toolbar",
+            height: 25,view: "toolbar",
             cols: [
                 { view: "label", label: "Выбор населенного пункта" },
                 { view: "icon", icon: "cog", css: "alter", click: "webix.message('Cog pressed')" },
@@ -55,15 +44,9 @@ function PlaceWindow(obj, countWindow, openWindowSysid, findText) {
             ]
         },
         on: {
-            onHide: function(){
-                console.log('onHide');
-            },
-            onShow: function() {
-                console.log('onShow');
-            },
-            onDestruct: function() {
-                console.log('onDesctct');
-                
+            onHide: function(){console.log('onHide');},
+            onShow: function() {console.log('onShow');},
+            onDestruct: function() {console.log('onDesctct');
             }
         },
 
@@ -71,9 +54,8 @@ function PlaceWindow(obj, countWindow, openWindowSysid, findText) {
             rows: [
                 {
                     cols: [
-                        { view: "text", id: "searchPlace", value: findText, placeholder: "(текст для поиска)", width: 250 },
-                        { view: "button", value: "Поиск", width: 50 /*, click: search */
-                        },
+                        { view: "text", id: "searchPlace", placeholder: "(текст для поиска)", width: 250 },
+                        { view: "button", value: "Поиск", width: 50 /*, click: search */},
                         {}
                     ]
                 },

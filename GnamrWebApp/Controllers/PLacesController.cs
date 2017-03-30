@@ -17,7 +17,7 @@ namespace GnamrWebApp.Controllers
 
         public PlaceData Get(int? parent = null)
         {
-            var re = rep.Places.Where(x => x.id_parent == parent).
+            var placeValues = rep.Places.Where(x => x.id_parent == parent).
             Select(x => new PlaceValue()
             {
                 id = x.id,
@@ -26,13 +26,13 @@ namespace GnamrWebApp.Controllers
                 webix_kids = rep.Places.Any(y => y.id_parent == x.id)
             }).ToList();
 
-            var reult = new PlaceData()
+            var resultPlaceData = new PlaceData()
             {
                 parent = parent,
-                data = re
+                data = placeValues
             };
 
-            return reult;
+            return resultPlaceData;
 
         }
     }
